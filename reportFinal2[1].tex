@@ -1,0 +1,726 @@
+%% bare_conf_compsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE Computer
+%% Society conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[conference,compsoc]{IEEEtran}
+% Some/most Computer Society conferences require the compsoc mode option,
+% but others may want the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+\usepackage{graphicx} 
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later.
+
+
+
+
+\newcommand{\dd}[1]{\mathrm{d}#1}
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+\usepackage{amsmath}
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+\usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a sans serif font rather
+% than the serif font used in traditional IEEE formatting and thus the need
+% to invoke different subfig.sty package options depending on whether
+% compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Wavelet Based Delineation for Electrocardiogram Recordings with Anomalies Ocurring in Children with Congenital Heart Disease.}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Freddy Angarita}
+\IEEEauthorblockA{School of Electrical and Computer Engineering\\
+Rice University\\
+Houston, Texas\\
+Email: faa3@rice.edu}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page (and note that there is less available width in this regard for
+% compsoc conferences compared to traditional conferences), use this
+% alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle 
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Junctional ectopic tachycardia (JET) is a type of arrhythmia that usually emerges as an early
+postoperative symptom in patients that go under open heart surgery to repair a congenital heart
+disease (CHD)\cite{GazeDavidC2018ICCH}. JET is observed in $10\%$ of surgeries for CHD, and it is also associated with high mortality rates and longer ICU stays\cite{WrenChristopher2011Cgtp}. Current JET detection methods require physicians to look for abnormalities in ECG recordings which can be cumbersome and prone to error. Therefore, there is a need for automated methods that can analyze heartbeat data for physicians. In this paper, a delineation system is implemented for single lead Electrocardiogram wave signal based on the Wavelet Transform. In the first step, the R peaks of the signal are detected and the R-R intervals are defined. Then, a search window for the detection of the T wave is defined based on the length of each heartbeat. Finally, each heartbeat is segmented at the offset of its respective T wave. Additionally, a preliminary analysis on selected patients was conducted to compare how well Euclidean and Wasserstein distances can separate a sinus versus a JET heartbeat using Multidimensional Scaling. This report shows that when using Wasserstein distances to compare heartbeats, the data can be linearly separable in a 3-dimensional space, whereas Euclidean distances do not provide enough information to differentiate between a healthy and JET heartbeat. 
+\end{abstract}
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+Congenital Heart Disease (CHD) refers to heart defects or abnormalities present at birth. CHD has become a major global health problem as it affects approximately 8 out of every 1,000 live births \cite{vanderLindeDenise2011Bpoc}. Post operative junctional ectopic tachycardia (JET) is a type of cardiac arrhythmia that occurs immediately after an open heart surgical repair of CHD. Risk factors for JET include younger age, lower weight, longer cardiopulmonary bypass (CBP), and hyperthermia, among others. A study shows that JET is more likely to occur after intravenous administration of inotropic agents due to low cardiac output, which produces high adrenergic stress \cite{MOAKJEFFREYP.2013PJET}. 
+
+JET can occur in 15.3\% of children and young adults undergoing open heart surgery leading to longer ICU stays and higher mortality rates \cite{MOAKJEFFREYP.2013PJET}. JET is commonly defined as a supraventricular arrhythmia, or rapid heartbeat, with no preceding P wave at a rate that exceeds the normal junctional escape rate at a given age. 
+
+
+In an electrocardiogram (ECG), JET is distinguished by the disappearance of the P wave or the appearance of the retrograde P wave \cite{WaughJamieL.S.2022Anaj}. Although the QRS complex of a JET heartbeat can be very fast and narrow, it is still fundamentally very similar to that of a normal sinus heartbeat. This scenario makes the detection of JET occurrence much more cumbersome for physicians. Current diagnosis methods are based on clinical notes, nursing observations, and the assessment of ECG recordings. Additionally, it has been shown that early treatment of postoperative JET benefits the arrhythmia control and significantly reduces the pediatric cardiac ICU stay \cite{HaasNikolausA.MD2008Ioea}. Therefore, there is a need for an automated, data-driven, algorithmic framework that can constantly monitor patients and alert cardiologists of a potential JET occurrence.  
+
+The ECG wave morphology is the primary tool that physicians use to diagnose JET conditions. Therefore, the implementation of a robust and accurate automatic delineation system that can identify the beginning and end of each heartbeat is of high priority. However, there is no general framework to locate the beginning or end of an ECG heartbeat. Following the procedure developed in \cite{1275572}, a Wavelet transform is used to find different resolutions of the ECG signal in the time-scale domain. This approach reduces noise and other artifacts that affect the ECG at different frequencies. The R peaks are first identified with the information provided by the Wavelet transform, which also helps in the identification of the heartbeat cycles. Finally, a search window for the T wave is defined, and the segmentation point will be at the time point of the offset of the T wave. This report focuses mainly on the delineation of ECG wave, which will serve as training data for subsequent classification models.
+
+The current literature shows that current ECG-based JET detection methods can be grouped in how they do feature selection. Some methods collect features based on width, peak amplitude, or correlation values \cite{LlamedoMariano2011HCUF}. However, these feature are too simple and may not extract enough information to accurately identify JET heartbeats. Other methods based on deep learning offer high accuracy but their feature selection process is not interpretable for cardiologists \cite{MadanParul2022AHDL}. Moreover, deep learning models require extensive amount of data and high computational power which makes them not suitable for ambulatory care.
+
+
+\section{Methods}
+
+\subsection{Data Collection}
+The data utilized in this stage comes from 21 patients who were admitted into intensive care units at Texas Children's Hospital. They were monitored using standard monitoring equipment with data being captured by the Sickbay platform. The Sickbay platform consists of software-based algorithms that convert physiological data from medical devices into real-time data for clinical and research purposes. The data files include ECG signal, as well as pressure measurements, chest impedance, and heart rate. The ECG data used in this report consists of approximately 16 hours of recordings consisting of both normal sinus heartbeats and JET heartbeats per patient with the JET heartbeats labeled by physicians from the Texas Children's Hospital.  
+
+\subsection{Wavelet Transform}
+The wavelet transform uses a prototype wavelet to decompose a signal into a set of basis functions. This transformation is obtained by the dilation $(a)$ and translation $(b)$ of the original prototype $\psi(t)$ signal. The mathematical definition is as followed:
+$$W_ax(b) = \frac{1}{\sqrt{a}} \int_{-\infty}^{+\infty} x(t) \psi \left(\frac{t-b}{a} \right) dt, a > 0$$
+
+When the scale factor $a$ is greater, the wider is the prototype function, and the corresponding wavelet transform will give information about lower frequency components. The opposite is also true, when the scale factor $a$ is smaller, the corresponding Wavelet transform will visualize higher frequency components in the signal. In \cite{1275572}, they show that when the prototype wavelet $\psi(t)$ is the derivative of a smoothing function $\theta(t)$, then the maximum and minimum values of the wavelet transform will be associated with maximum slopes in the original signal. Therefore, the zero crossings of the wavelet transform will correspond to local minima and local maxima points. This property is very useful to identify local maxima points of the ECG wave at different time points. 
+
+The parameters $a$ and $b$ can be discretized to follow a dyadic (bases of $2$) grid on the time-domain as such $a = 2^k$ and $b = 2^{kl}$. The Wavelet transform can then be defined as: \cite{1275572}
+$$\psi_{k,l} = 2^{-k/2}\psi(2^{-k}t-l); k, l \in Z ^+$$ 
+
+According to \cite{45554}, this discretization known as the dyadic wavelet transform can be implemented using a cascaded filter bank with low pass and high pass finite impulse response filters known as \textit{algorithme à trous} \cite{488697}. A visual representation of the algorithm can be seen in the following image where at each point in the cascaded paradigm a different wavelet transform scaled at $2^k$ is obtained.
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{algorithATrous.png}
+\caption{Visual representation of the \textit{algorithme à trous}. Image taken from \cite{1275572}}
+\label{fig_sim}
+\end{figure}
+
+The authors is \cite{MallatS.1992Cosf} proposed using a quadratic spline as the prototype wavelet, which has already been applied in ECG signals by other academics. This prototype wavelet is advantageous because of its smoothness and its application to fast algorithms. The authors also derive in \cite{MallatS.1992Cosf} the high pass and low pass filters to implement the dyadic wavelet transform. To process the ECG data in this paper, the following FIR filters were used with impulse response
+$$h[n] = \frac{1}{8}\{\delta[n+2] + 3\delta[n+1] + 3\delta[n] + \delta[n-1]\}$$
+$$g[n] = 2\{\delta[n+1] - \delta[n]\}$$
+
+The original ECG signal was convolved with the FIR filters to obtain the dyadic wavelet transform $2^k$ for $k=1,2,3,4$ following the algorithm illustrated in Figure 1.
+
+\subsection{Heartbeat Segmentation Algorithm Description}
+The following algorithm is based on the instructions from the authors in \cite{1275572} with modifications that are applicable to the data received from the Texas Children's Hospital. 
+
+The raw ECG signal was taken without any prefiltering technique since this is implicitly done when computing the Discrete Wavelet Transform.
+
+1) \textit{R Peak Detection}: This section follows the multi resolution idea proposed in \cite{LiC1995DoEc}. The algorithm consists of computing the Discrete Wavelet transform of the signal and then searching for "maximum modulus lines" across multiple scales. In the paper, maximum modulus lines consists of time point pairs where there is a significant maxima followed by a minima, or vice versa. The zero crossings of these modulus lines in the DWT indicate the time point of a peak in the original ECG signal. At every scale $2^k, k=1...4$ of the DWT, only modulus lines that exceed a threshold are considered with the threshold defined as the RMS of the signal every $2^16$ samples. 
+
+First, the DWT at $2^4$ scale is scanned to find the modulus lines, then we scan the $2^3$ scale DWT to find the modulus lines matching those from the $2^4$ scale. We repeat the process until we reach the scale $2^1$. Finally, we find the zero crossings of the modulus lines obtained in the $2^1$ scale, and annotate those as the R peaks. The reason for finding modulus lines is because a positive slope in the original signal is represented by a maximum in the DWT, and a negative slope is represented by a minima in the DWT. Therefore, the zero crossing of the modulus line will indicate the presence of a peak in the signal. Factors such as baseline drift and noise are eliminated by scanning from higher to lower DWT resolutions, making the R peak annotation robust to these elements. In this implementation, when searching for modulus lines, only maximum-minimum pairs that are at most 11 samples apart are considered. This is based on the fact that the R-peak time can be at most 45 ms, which translates to 11 samples at 250 fs. Additionally, when matching modulus lines from different DWT scales, a maximum distance of 5 samples is used to match one modulus line to another. This is based on heuristics discovered by observing the provided data. This implementation also includes an extra verification step that checks that the R peaks annotated are properly distanced using the heart rate of the patients as a distance benchmark.
+
+2) \textit{T Wave and Heartbeat Delineation}: To find the segmentation points, the onset of the T wave is needed to indicate the beginning and end of the heartbeat. The reason for searching for the T wave rather than the P wave is because the provided data might contain P wave morphologies, such as absent or negative P wave, that make this step more difficult to implement. Once the R-peaks are computed, a search window for the T wave is defined based on empirical values. The authors is \cite{ChenGenlang2020ACWD} define an adaptive search window for the T wave that depends on the distance between two consecutive heartbeats. If the heartbeats are more than 770ms apart, the search window encompasses 550ms after the corresponding R-peak. Otherwise, the search window encompasses up until a $75\%$ of the time interval between the two neighboring beats. After defining a search window for the T wave, the T-peak is found following similar steps as in step 1, where modulus lines or maximum-minimum pairs are searched using only the $2^4$ scale of the DWT. This is because the $2^4$ shows the features of the T and P wave with better resolution than the other scales. Only modulus lines exceeding a threshold, the rms of the search window, are considered, and the one closest to the R-peak is chosen. Finally, the offset of the T wave is labeled as the segmentation point of the heartbeat.
+
+
+
+\subsection{Optimal Transport Metric and Barycenters}
+The detection of JET arrhythmia is essentially a geometric process as it involves the shape analysis of the QRS-complex and the P-wave. This is the motivation behind the study of geometric based models for the automatic detection of cardiac abnormalities.
+
+Optimal transport (OT) is based on the distances between two probabilities distributions, also known as\textit{ Wasserstein distance}. One way to understand Optimal Transport is as an Assignment problem where we have a source and a target distribution that live in two different spaces $\Omega_1$ and $\Omega_2$. Assume also that we are given a Cost matrix $C_{ij}$ indicating the cost of moving one unit of mass from location $i \in \Omega_1$ to location $j \in \Omega_2$. We are tasked to come up with the most efficient plan to move the entire source distribution to the target distribution given the Cost matrix \cite{PeyréGabriel2020COT}. If the source and target distributions are two discrete probability distributions, then the most efficient plan will have a minimized cost and that cost is known as the Wasserstein distance between those two distributions. 
+
+In this report, we consider two discrete one-dimensional probability distributions $P$ and $Q$ with $n$ bins each, and a cost matrix defined as,
+\begin{equation}
+    C_{ij} = ||i - j||^{2}
+\end{equation}
+The transport plan in the discrete case will be a matrix $T \in {R}^{nxn}$. Consequently, we define the total cost as,
+\begin{equation}
+    Total\:Cost = \sum_{i=1}^{n} \sum_{j=1}^{n} T_{ij}C_{ij}
+\end{equation}
+The optimal transport plan is thus defined by the following optimization problem,
+\begin{equation}
+\begin{aligned}
+\min_{T} \quad & \sum_{i=1}^{n} \sum_{j=1}^{n} T_{ij}C_{ij}\\
+\textrm{s.t.} \quad & \sum_{j=1}^n T_{ij} = P_i \: \: \forall i \in {1,...,n}\\
+& \sum_{i=1}^n T_{ij} = Q_i \: \: \forall i \in {1,...,n}\\
+  &T_{ij} \ge 0     \\
+\end{aligned}
+\end{equation}
+In the optimization problem, the constraints ensure that the marginal probabilities of $P$ and $Q$ match those of the transport plan $T$. If we define $T^*$ as the solution to the optimization problem, then the p-Wasserstein distance is defined as,
+\begin{equation}
+    W_p(P,Q) = (\sum_{i=1}^{n} \sum_{j=1}^{n} T_{ij}^*C_{ij})^{1/p}
+\end{equation}
+
+In the case, where $p=1$, then there exists a closed form solution for the Wassertein distance \cite{PanaretosVictorM2019SAoW},
+\begin{equation}
+    W_1(P,Q) = \sum_{k=1}^n |F_P(k) - F_Q(k)|
+\end{equation}
+
+From the idea of Euclidean mean or Euclidean barycenter, we can extend this knowledge to Optimal Transport and compute a Wasserstein mean or barycenter. In practice, the barycenter can be computed by solving the regularized optimization problem,
+\begin{equation}
+    \min_{\mu}  \sum_{i} W_2^2(\mu, \mu_i) + \gamma E(\mu)
+\end{equation}
+
+With $E$ defined as a penalty function. In the literature, there has been studies proving the convergeance and uniqueness of this optimization problem \cite{BigotJérémie2019PoBi}.
+
+\section{Results}
+
+The described delineation algorithm presented in the Methods section was implemented on both Sinus and JET ECG signals. This method did not require learning any parameters boosting the computation time which makes it suitable for live monitoring systems.  
+
+Because the data provided did not contain manually annotated segmentation points, the performance evaluation of the implemented method was done by visually inspecting the segmentation points in the algorithm.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{beat1.png}
+\caption{Segmentation results in sinus heartbeat with delineation points shown in blue.}
+\label{fig_sim}
+\end{figure}
+
+On a healthy sinus recording, as seen in Figure 2, the method proved to be efficient and consistent at identifying the R-peaks in recordings with no noise or baseline drift. In almost all recordings, the R-peaks were correctly annotated despite multiple patients having different morphologies. The segmentation point results were less consistent and varied by patients although not at a high degree. Figure 2 shows an example of perfect delineation where the algorithm was able to detect the offset of the T wave right before the onset of the P wave and mark it as the segmentation point.
+
+In the presence of noise and baseline drift, the algorithm also showed promising results by correctly identifying the R-peaks and segmentation points. These results highlight the benefits of using a multi resolution approach with discrete wavelet transforms. Figure 3 shows an example of the robustness of the algorithm against baseline drift. Despite the changes in the signal due multiple artifacts, the peaks and segmentation points were accurately identified. Figure 4 shows an example of a recording with noise. In this image, though the R-peaks are correctly annotated, the delineation process was affected by the multiple peaks in the signal. The image shows how some of the heartbeats were incorrectly cut after the P-wave in the signal. Although, most of the signal was accurately segmented, the delineation step was not completely robust to the noise. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{beat3.png}
+\caption{Segmentation results on a sinus recording with baseline drift. }
+\label{fig_sim}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{beat5.png}
+\caption{Segmentation results on a sinus recording with noise. }
+\label{fig_sim}
+\end{figure}
+
+On JET heartbeats, where the P-wave is some times missing, the algorithm accurately identified R-peaks and delineation points. Figure 5 illustrates a typical JET heartbeat where the delineation step was able to capture the offset of the T wave despite its low energy and a missing P wave. Figure 6 illustrated a JET heartbeat where the T waves have very high energy that is equal or greater than the R peaks. It is noteworthy that the algorithm was able to accurately identify the R peak and the T offset despite the T wave being higher in magnitude for some of the heartbeats. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{jet1.png}
+\caption{Segmentation results on a sinus recording with noise. }
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{jet2.png}
+\caption{Segmentation results on a sinus recording with noise. }
+\label{fig_sim}
+\end{figure}
+
+
+
+To visualise how the new delineation technique can be used to distinguish sinus versus JET heartbeats, a multidimensional scaling (MDS) framework where each heartbeat is mapped into a 3D embedding was implemented. Both Euclidean and Wasserstein distances were used as a reference metric in the embedding. The purpose of this is to identify if distance metrics can be used to classify JET heartbeats when these are correctly segmented. The results are displayed in Figure 7 with sinus and JET heartbeats in blue and red, respectively. The main takeaway is that results vary by patients significantly. However, in the patients where Euclidean distance accurately separates the data, the Wassertein embedding shows a higher degree of separability. In some patients, Wasserstein embeddings completely separate JET and sinus heartbeats making this metric a promising tool from which classification models can be based on.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{mdsbeats.png}
+\caption{MDS embedding of heartbeat data in 3D with sinus heartbeats in blue, and JET heartbeats in red.}
+\label{fig_sim}
+\end{figure}
+
+
+
+\section{Discussion}
+
+In this report, heartbeat segmentation was improved by implementing a wavelet-based delineator. The advantages of this implementation include its fast computation, and its high level of interpretability due to its heuristic-based approach that identifies the different heartbeat morphologies. Another advantage of this implementation is that it only requires the identification of the R and T waves rather than the other Q, S, and P waves. The R peak detection step was very robust against noise and baseline drift. Similarly, the delineation step was very successful in identifying the offset of the T wave in both regular sinus and JET heartbeats. However, in the presence of noise, there are still improvements that can be done with the heuristics used. The biggest challenge is in defining a proper search window for the T wave which varies considerably by patients and by different heart rates. A major flaw was incorrectly identifying the P wave as the T wave due to their proximity in the ECG signal. Additionally, in some of the patients, the P wave has higher energy than the T wave which confuses the algorithm in the delineation step. A possible solution to this problem could be including a stricter search window that does not cover the P wave area. However, because there is no golden rule to define what distance should the T and P wave be from the R wave, this technique can only be implemented using the knowledge from each individual patients. Another solution can be including an extra step to identify the P wave in the signal. This may increase computation time, but it can serve as an extra check point to ensure that both the T and P wave are identified. However, this approach might run into challenges to identify the P wave in JET heartbeats where it is nonexistent in some cases.  
+
+Finally, this new wavelet-based method improved the separability of JET and sinus heartbeats when using Wasserstein embedding as a distance metric. Figure 7 shows that these results are still highly dependent on the patients an that there might be other inherent clusters in the data rather than just 2 classification outcomes. Out of the 8 patients chosen in Figure 7, 5 of them (patients 0, 1, 2, 3, and 6) showed clear separability in the Wasserstein embedding whereas the Euclidean embedding of the same patinets did not show the same results, alluding to the idea that Wasserstein based methods may be more accurate to solve the problem of JET arrhythmia detection. 
+
+The results in this report show that with proper segmentation methods, a classification model can be implemented that is efficient and interpretable. The wavelet-based method proved to be fast, reliable, and efficient on the ECG data that was provided for this report. Although more data is needed to fully test and validate this method against standard databases, and more inspection needs to be done to make this algorithm more robust against noisy artifacts in the signal
+
+
+
+
+
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+% conference papers do not normally have an appendix
+
+
+
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+Matlab and Python scripts were used for the processing, analysis, and visualization of the data. The
+author declares no potential conflicts of interest. This work was supported by the assistance of Dr. Cesar Uribe from Rice University and Dr. Sebastian Acosta from Baylor College of Medicine as Principal Investigators.
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\bibliographystyle{plain}
+
+\bibliography{refs.bib}
+
+% \begin{thebibliography}{1}
+
+% \bibitem{IEEEhowto:kopka}
+% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+% \end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
+
+
